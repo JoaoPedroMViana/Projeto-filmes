@@ -7,7 +7,7 @@
 //Rotas Login-------------------------------------------------------
     router.get("/login", function(req, res){
         //res.send("ola");//so pode ser usado uma vez na rota
-        res.render("form_login");
+        res.render("forms/form_login");
         //verificar se o user ja existe, se sim vai direto pro watchlist
     })
 
