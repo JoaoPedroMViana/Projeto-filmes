@@ -1,0 +1,11 @@
+{{!--arquivo que vai ser sempre carregado no main, precisa criar uma pasta com exatamente esse nome--}}
+<nav class="cabecalho">
+    <a href="/usuario/{{#if user}}{{user.nome}}{{else}}Desconectado{{/if}}/watchlist" class="link_watchlist">
+        <h1>Watchlist</h1>
+        <div></div>
+    </a>
+    
+    {{#if user}}
+        <a href="/usuario/logout"><p>Logout</p> <span></span></a>
+    {{/if}}
+</nav>

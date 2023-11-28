@@ -1,0 +1,14 @@
+// baixei os modules:
+//     sequelize => mexer com banco de dados
+//     espress => fazer as rotas
+//     nodemon => carregamento automatico
+//     express-handlebars => engine para carregar as paginas e usar layouts
+//     body-parser => pegar os valores do formulario e enviar pro espress
+//     express-session => 
+//     connect-flash => usado para criar uma sessão que dura só até o usuário carregar a tela, ou seja com isso é possível fazer variaveis existirem por um tempo determinado
+//     bcryptjs => usado para criptografar as senhas usando hash
+//     passport => sistema de autenticação para login
+//     passport-local => tipo de estrategia que escolhi para autenticação
+// cookie => arquivo de texto que fica salvo no site, como endereços de ip, idiomas, usuarios e senhas
+// sessões => mesma coisa que o cookie mas fica salva no servidor, é mais seguro, guarda as informações temporariamente para poder usar essas infos em algum lugar na aplicação. Depende dos cookies para funcionar
+// middlewares => parte da aplicação que intermedia a interação cliente servidor, comunicação, request e resposta, com ele é possível alterar as informações antes de chegar no seu destino

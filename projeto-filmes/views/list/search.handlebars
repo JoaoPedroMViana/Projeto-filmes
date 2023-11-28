@@ -1,0 +1,36 @@
+<div class="conteiner-pesquisar">
+    <a title="voltar" class="img_voltar" onclick="history.go(-1)" id="botaoVoltar"></a> {{!--voltar na ultima url--}}
+    <form action="" method="post" class="search" id="form_search">
+            <input type="text" id="searchFilms" name="searchFilms" placeholder="Pesquisar..." required>
+            <button type="submit"></button>
+    </form>
+</div>
+<section class="conteiner-search">
+    {{#each filmes}}
+        <div class="individual-filme">
+            <form action="/usuario/search/add" method="post">
+                <img src="http://image.tmdb.org/t/p/w500/{{poster_path}}" alt="Poster {{title}}">
+                <input type="hidden" name="valorId" value="{{id}}">
+                <h2>{{title}}</h2>
+                <button type="submit">Adicionar</button>
+            </form>
+        </div>
+    {{else}}
+
+        <h4>
+            Filme não encontrado
+        </h4>
+
+    {{/each}}
+    <script>
+      
+      let form_search = document.getElementById("form_search");
+      let input = document.getElementById("searchFilms"); 
+         form_search.addEventListener('submit', function(){
+            let nomeFilme = input.value;
+            form_search.action = "/usuario/{{#if user}}{{user.nome}}{{else}}Desconectado}{{/if}}/search/"+nomeFilme;
+         });
+
+   </script>
+</section>
+

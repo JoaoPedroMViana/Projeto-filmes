@@ -1,0 +1,44 @@
+<section class="section-login">
+  <form action="/usuario/watchlist" method="post" class="form-login" id="form"> {{!-- mudar valor do usuario --}}
+    <div class="conteiner-login">
+      <div>
+        <div class="img-usuario"></div>
+        <input type="text" name="usuario" id="usuario" autofocus required>
+        <label for="usuario">Usuário*</label>
+      </div>
+      <div>
+        <div class="img-senha"></div>
+        <input type="password" name="senha" id="senha" required>
+        <label for="senha">Senha*</label>
+        <input type="checkbox" name="mostrar-senha" id="mostrar-senha">
+        <label for="mostrar-senha"></label>
+      </div>
+      <button type="submit">Entrar <div class="img-botao"></div></button>
+    </div>{{!--conteiner-login--}}
+    <div class="conteiner-link-cadastro">
+      <p>Não possui cadastro? clique <a href="/watchlist/cadastro">aqui</a></p>
+    </div>
+  </form>
+  <script>
+    let checkbox = document.getElementById("mostrar-senha");
+    let input = document.getElementById("senha");
+
+    function mudarSenha(){
+      if(input.getAttribute("type") == "text"){
+        input.setAttribute("type", "password")
+      }else{
+        input.setAttribute("type", "text")
+      }
+    } 
+
+    checkbox.addEventListener('click', mudarSenha);
+
+    let form = document.getElementById("form");
+    let nome = document.getElementById("usuario");
+      nome.value = localStorage.getItem("usuario");
+      form.addEventListener('submit', function(){
+        localStorage.setItem("usuario", nome.value);
+      }) 
+  </script>
+{{!--js para mudar a url dinamicamente--}}
+</section>

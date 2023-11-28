@@ -1,0 +1,76 @@
+<section class="section-cad">
+    <section class="section-error"> 
+        {{#each errorsName}}
+            <div class="error_msg">
+                <h2>
+                    {{text}}
+                </h2>
+            </div>
+        {{/each}}
+        {{#each errorsSenha}}
+            <div class="error_msg">
+                <h2>
+                    {{text}}
+                </h2>
+            </div>
+        {{/each}}
+    </section>
+    <form action="/watchlist/cadastro" method="post" class="form-cad">
+        <div class="conteiner-cadastro">
+            <div>
+                <div class="img-usuario"></div>
+                <input type="text" name="usuario" id="usuario" value="{{nome}}" required autofocus>
+                <label for="usuario">Usuário*</label>
+            </div>
+            <div>
+                <div class="img-senha"></div>
+                <input type="password" name="senha" id="senha" value="{{senha}}" required>
+                <label for="senha">Senha*</label>
+                <input type="checkbox" name="mostrar-senha" id="mostrar-senha">
+                <label for="mostrar-senha"></label>
+            </div>
+            <div>
+                <p>Sua senha deve conter no mínimo 8 dígitos, entre elas: letras maiúsculas, minúsculas, números e caracteres</p>
+            </div>
+            <div>
+                <div class="img-senha"></div>
+                <input type="password" name="conf_senha" id="conf_senha" value="{{confSenha}}" required>
+                <label for="conf_senha">Confirmar senha*</label>
+                <input type="checkbox" name="mostrar-senha" id="mostrar-senha2">
+                <label for="mostrar-senha2"></label>
+            </div>
+            <button type="submit">Cadastrar <div class="img-botao"></div></button>
+        </div>
+    <div class="conteiner-link-login">
+        <p>Já possui cadastro? clique <a href="/watchlist/login">aqui</a></p>
+    </div>
+    </form>
+    <script>
+        let checkbox = document.getElementById("mostrar-senha");
+        let checkbox2 = document.getElementById("mostrar-senha2");
+        let input = document.getElementById("senha");
+        let input2 = document.getElementById("conf_senha");
+
+        function mudarSenha(input){
+            if(input.getAttribute("type") == "text"){
+                input.setAttribute("type", "password");
+            }else{
+                input.setAttribute("type", "text");
+            }
+        } 
+
+        checkbox.addEventListener('click', function(){
+            mudarSenha(input);
+        });
+        checkbox2.addEventListener('click', function(){
+            mudarSenha(input2);
+        });
+
+        let form = document.getElementById("form");
+        let nome = document.getElementById("usuario");
+        nome.value = localStorage.getItem("usuario");
+        form.addEventListener('submit', function(){
+            localStorage.setItem("usuario", nome.value);
+        }) 
+    </script>
+</section>

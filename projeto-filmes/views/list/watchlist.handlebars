@@ -1,0 +1,46 @@
+<div class="conteiner-watchlist">
+   <div class="top">
+      <div>
+         <h1>Sua watchlist: </h1>
+         <div class="img-list"></div>
+      </div>
+      <form action="" method="post" class="search" id="form">
+         <input type="text" id="searchFilms" name="searchFilms" placeholder="Pesquisar..." required>
+         <button type="submit"></button>
+      </form>
+   </div>
+   <div class="infos">
+         <h2>Filmes: <span>{{quantFilmes}}</span></h2>
+         <h2>Tempo: <span>{{tempoTotal.horas}}h</span> <span>{{tempoTotal.minutos}}min</span></h2>
+   </div>
+   <div class="lista_films">
+      {{#each filmes}}
+         <div class="individual-filme">
+               <div>
+                  <form action="/usuario/delete" method="post" class="img-fechar">
+                     <input type="hidden" name="valorId" value="{{id}}">
+                     <input type="submit" value="">
+                  </form>
+                  <img src="http://image.tmdb.org/t/p/w500/{{poster_path}}" alt="Poster {{title}}">
+                  <h2>{{title}}</h2>
+               </div>
+         </div>
+
+         {{else}}
+            <a href="/watchlist/login" class="mensagem">
+               {{mensagem}}
+            </a>
+      {{/each}}
+   </div>
+   <script>
+      
+      let form = document.getElementById("form");
+      let input = document.getElementById("searchFilms"); 
+         form.addEventListener('submit', function(){
+            let nomeFilme = input.value;
+            form.action = "/usuario/{{#if user}}{{user.nome}}{{else}}Desconectado}{{/if}}/search/"+nomeFilme;
+         });
+
+   </script>
+</div>
+

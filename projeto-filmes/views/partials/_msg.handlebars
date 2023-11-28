@@ -1,0 +1,18 @@
+<section class="section-error">
+    {{#if success_msg}} {{!--verifica se a variavel success_msg foi declarada--}}
+        <div class="success_msg">
+            <h2>{{success_msg}}</h2>
+        </div>
+    {{/if}}
+
+    {{#if error_msg}}
+        <div class="error_msg">
+            <h2>{{error_msg}}</h2>
+        </div>
+    {{/if}}
+    {{#if error}}
+            <div class="error_msg">
+                <h2>{{error}}</h2>
+            </div>
+    {{/if}}
+</section>
