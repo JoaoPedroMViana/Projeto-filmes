@@ -5,6 +5,7 @@ import dotenv from "dotenv/config.js";
 const sequelize = new Sequelize(process.env.NAME, process.env.USER, process.env.PASSWORD, {
     host: process.env.HOST,
     dialect: "mysql",
+    dialectModule: mysql2,
     port: process.env.PORT,
     dialectOptions: {
         ssl: {
