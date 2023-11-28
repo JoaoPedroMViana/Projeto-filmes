@@ -5,7 +5,6 @@
     import loginCad from "./routes/loginCad.js"
     import list from "./routes/list.js";
     import path from "path";
-    import { fileURLToPath } from "url";
     import session from "express-session";
     import flash from "connect-flash";
     import dotenv from "dotenv/config.js"; 
@@ -14,8 +13,6 @@
 
     const app = express();//referencia para usar o express
     configAuth(passport);
-    const __filename = fileURLToPath(import.meta.url);
-    const __dirname = path.dirname(__filename);
     
 //Config------------------------------------------------
     //Sessão
@@ -46,10 +43,7 @@
         app.use(bodyParser.json());
 
     //Public
-        app.use(
-            '/static',
-            express.static(path.join(__dirname, "public"))
-            );//usar arquivos estaticos (css, js ...)
+        app.use(express.static(path.join("./public")));//usar arquivos estaticos (css, js ...)
 
 //Rotas------------------------------------------------
     app.get("/", function(req, res){
