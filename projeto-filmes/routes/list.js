@@ -96,7 +96,7 @@ router.post("/:usuario/search/:filme", function(req, res){
           Authorization: process.env.AUTHORIZATION
         }
       };
-      fetch(process.env.SEARCH+nomeFilme+'&include_adult=false&language=en-US&page=1', options)
+      fetch(process.env.SEARCH+nomeFilme+'&include_adult=false&language=pt-Br&page=1', options)
         .then(response => response.json())
         .then(response => { 
             const listaIds = [];

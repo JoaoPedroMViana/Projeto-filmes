@@ -19,7 +19,7 @@
                <div>
                   <form action="/usuario/delete" method="post" class="img-fechar">
                      <input type="hidden" name="valorId" value="{{id}}">
-                     <input type="submit" value="">
+                     <input type="submit" value="" name="inputExcluir">
                   </form>
                   <img src="http://image.tmdb.org/t/p/w500/{{poster_path}}" alt="Poster {{title}}">
                   <h2>{{title}}</h2>
@@ -33,13 +33,34 @@
       {{/each}}
    </div>
    <script>
-      
+
+      let button = document.getElementsByTagName("button");
+      let forms = document.getElementsByTagName("form");
       let form = document.getElementById("form");
       let input = document.getElementById("searchFilms"); 
+      let inputExcluir = document.getElementsByName("inputExcluir");
+
          form.addEventListener('submit', function(){
             let nomeFilme = input.value;
             form.action = "/usuario/{{#if user}}{{user.nome}}{{else}}Desconectado}{{/if}}/search/"+nomeFilme;
          });
+
+         for(let f of forms){
+               f.addEventListener("submit", function(){
+                  blockButtons();
+               });
+            }
+
+         function blockButtons(){
+            for(let e of button){
+               e.setAttribute('disabled', "true");
+               e.style.cursor = "none";
+            }
+            for(let i of inputExcluir){
+               i.setAttribute('disabled', "true");
+               i.style.cursor = "none";
+            }
+         }
 
    </script>
 </div>

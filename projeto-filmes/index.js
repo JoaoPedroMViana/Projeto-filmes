@@ -37,7 +37,6 @@
     //Template Engine
         app.engine("handlebars", ExpressHandlebars.engine({defaultLayout: "main"})); //definindo essa engine como main
         app.set("view engine", "handlebars");
-        app.set('views', path.join('./views'));
 
     //Body-parser
         app.use(bodyParser.urlencoded({extended: true}));

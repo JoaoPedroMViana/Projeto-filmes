@@ -23,14 +23,28 @@
 
     {{/each}}
     <script>
-      
+      let button = document.getElementsByTagName("button");
+      let forms = document.getElementsByTagName("form");
       let form_search = document.getElementById("form_search");
       let input = document.getElementById("searchFilms"); 
          form_search.addEventListener('submit', function(){
             let nomeFilme = input.value;
             form_search.action = "/usuario/{{#if user}}{{user.nome}}{{else}}Desconectado}{{/if}}/search/"+nomeFilme;
          });
+        
+            for(let f of forms){
+                f.addEventListener("submit", function(){
+                    blockButtons();
+                });
+            }
 
+         function blockButtons(){
+            for(let e of button){
+                e.setAttribute('disabled', "true");
+                e.style.cursor = "none";
+            }
+         }
+    
    </script>
 </section>
 
