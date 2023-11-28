@@ -1,6 +1,6 @@
 import Sequelize from 'sequelize';
-import dotenv from "dotenv/config.js"; 
 import mysql2 from 'mysql2';
+import dotenv from "dotenv/config.js"; 
 
 //Conecção BD------------------------------------------------
 const sequelize = new Sequelize(process.env.NAME, process.env.USER, process.env.PASSWORD, {
