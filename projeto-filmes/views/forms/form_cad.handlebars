@@ -15,7 +15,7 @@
             </div>
         {{/each}}
     </section>
-    <form action="/watchlist/cadastro" method="post" class="form-cad">
+    <form action="/watchlist/cadastro" method="post" class="form-cad" id="form_cad">
         <div class="conteiner-cadastro">
             <div>
                 <div class="img-usuario"></div>
@@ -39,10 +39,10 @@
                 <input type="checkbox" name="mostrar-senha" id="mostrar-senha2">
                 <label for="mostrar-senha2"></label>
             </div>
-            <button type="submit">Cadastrar <div class="img-botao"></div></button>
+            <button type="submit" id="botao_cad">Cadastrar <div class="img-botao"></div></button>
         </div>
     <div class="conteiner-link-login">
-        <p>Já possui cadastro? clique <a href="/watchlist/login">aqui</a></p>
+        <p>Já possui cadastro? clique <a href="/watchlist/login" id="link_login">aqui</a></p>
     </div>
     </form>
     <script>
@@ -66,11 +66,23 @@
             mudarSenha(input2);
         });
 
-        let form = document.getElementById("form");
+        let form = document.getElementById("form_cad");
         let nome = document.getElementById("usuario");
-        nome.value = localStorage.getItem("usuario");
+        let botao_cad = document.getElementById("botao_cad");
+        let link_login = document.getElementById("link_login");
+
+        sessionStorage.removeItem("usuario");
+
+        nome.value = sessionStorage.getItem("usuarioCad");
+        botao_cad.addEventListener('click', function(){
+            sessionStorage.setItem("usuarioCad", nome.value);
+        })
         form.addEventListener('submit', function(){
-            localStorage.setItem("usuario", nome.value);
-        }) 
+            sessionStorage.setItem("usuario", nome.value);
+        });
+
+        link_login.addEventListener('', function(){
+            sessionStorage.removeItem("usuarioCad");
+        });
     </script>
 </section>

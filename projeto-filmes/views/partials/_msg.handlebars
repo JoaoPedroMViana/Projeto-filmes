@@ -1,4 +1,4 @@
-<section class="section-error">
+<section class="section-error" id="section-error">
     {{#if success_msg}} {{!--verifica se a variavel success_msg foi declarada--}}
         <div class="success_msg">
             <h2>{{success_msg}}</h2>
@@ -15,4 +15,37 @@
                 <h2>{{error}}</h2>
             </div>
     {{/if}}
+    <script>
+        
+        let section_error = document.getElementById("section-error");
+        
+        if(window.location.href == "http://localhost:8080/watchlist/login"){
+            
+        }else{
+            if(window.innerWidth < 750 && window.innerWidth > 500){
+            section_error.style.top = "78px";
+            section_error.style.right = "unset";
+            }else if(window.innerWidth < 500){
+                section_error.style.top = "117px";
+                section_error.style.right = "3%";
+            }else{
+                section_error.style.top = "5px";
+                section_error.style.right = "unset";
+            }
+            window.addEventListener("resize", function(){
+                if(window.innerWidth < 750 && window.innerWidth > 500){
+                    section_error.style.top = "78px";
+                    section_error.style.right = "unset";
+                }else if(window.innerWidth < 500){
+                    section_error.style.top = "117px";
+                    section_error.style.right = "3%";
+                }else{
+                    section_error.style.top = "5px";
+                    section_error.style.right = "unset";
+                }
+            });
+
+        }
+        
+    </script>
 </section>

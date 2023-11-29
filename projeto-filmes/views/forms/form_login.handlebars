@@ -35,9 +35,10 @@
 
     let form = document.getElementById("form");
     let nome = document.getElementById("usuario");
-      nome.value = localStorage.getItem("usuario");
+      sessionStorage.removeItem("usuarioCad");
+      nome.value = sessionStorage.getItem("usuario");
       form.addEventListener('submit', function(){
-        localStorage.setItem("usuario", nome.value);
+        sessionStorage.setItem("usuario", nome.value);
       }) 
   </script>
 {{!--js para mudar a url dinamicamente--}}

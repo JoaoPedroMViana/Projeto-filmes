@@ -107,11 +107,12 @@ router.post("/:usuario/search/:filme", function(req, res){
         }).catch(err => {console.error(err); res.render("list/search")});
 });
 
-router.post("/search/add", function(req, res){//talvez mudar isso para um js puro no front pegando o id e trazendo o valor para o back
+router.post("/search/add", function(req, res){
     if(req.user != null){
         const valorId = req.body.valorId;
         Lista.findOne({where: {
-            id_filmes: valorId
+            id_filmes: valorId,
+            id_usuario: req.user.id
         }}).then(function(data){
             console.log(data);
             if(data != null){

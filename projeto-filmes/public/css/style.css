@@ -216,7 +216,7 @@ section.main-section {
 .conteiner-login input:not([type='checkbox']) {
     width: 100%;
     padding: 0.5em;
-    padding-left: 2em;
+    padding-left: 2.4em;
     margin-bottom: 1.5em;
     border: none;
     border-radius: 0.6em;
